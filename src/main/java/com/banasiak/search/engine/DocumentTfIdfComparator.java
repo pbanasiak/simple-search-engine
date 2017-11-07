@@ -31,6 +31,12 @@ public class DocumentTfIdfComparator implements Comparator<Document> {
         return tdIdf2.compareTo(tdIdf1);
     }
 
+    /**
+     * (Number of times term word appears in a document) / (Total number of words in the document)
+     *
+     * @param document
+     * @return
+     */
     private double getTf(Document document) {
         double frequency = 0.0;
         if (document.getFrequencyMap().containsKey(word)) {
@@ -40,6 +46,11 @@ public class DocumentTfIdfComparator implements Comparator<Document> {
         return frequency / wordsCount;
     }
 
+    /**
+     * log(Total number of documents / Number of documents with term word in it).
+     *
+     * @return
+     */
     private double getIdf() {
         return Math.log10(totalDocumentsCount * 1.0 / numberOfDocumentsForWord);
     }

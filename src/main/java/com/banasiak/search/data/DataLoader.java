@@ -39,11 +39,15 @@ public class DataLoader {
         String name = strings[0];
         //remove quotes
         String documentBody = strings[1].replace("\"", "");
-        String[] words = documentBody.split(WORDS_DELIMETER);
+        String[] words = tokenization(documentBody);
         if (Constants.IS_DEBUG) {
             //TODO replace with logger;
             System.out.println("Loaded words " + Arrays.toString(words));
         }
         return new Document(name, words);
+    }
+
+    private static String[] tokenization(String documentBody) {
+        return documentBody.split(WORDS_DELIMETER);
     }
 }

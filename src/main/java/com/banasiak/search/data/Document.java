@@ -6,7 +6,7 @@ import java.util.Map;
 public class Document {
 
     private final Map<String, Integer> frequencyMap = new HashMap();
-    private final  String name;
+    private final String name;
     private Integer wordsCount = 0;
 
     public Document(String name, String[] words) {

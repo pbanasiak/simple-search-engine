@@ -2,16 +2,11 @@ package com.banasiak.search.custom;
 
 import com.banasiak.search.data.DataLoader;
 import com.banasiak.search.data.Document;
-import com.banasiak.search.data.DocumentsProvider;
 import com.banasiak.search.engine.SearchEngine;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomTest {
 
@@ -39,7 +34,7 @@ public class CustomTest {
         List<Document> search = searchEngine.search("customWord");
 
         System.out.println("Custom Search, Order by tf idf descending");
-        for(Document document : search) {
+        for (Document document : search) {
             System.out.println(document.getName());
         }
 

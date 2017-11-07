@@ -3,7 +3,6 @@ package com.banasiak.search.engine;
 import com.banasiak.search.data.DataLoader;
 import com.banasiak.search.data.Document;
 import com.banasiak.search.data.DocumentsProvider;
-import com.google.common.collect.Ordering;
 import org.testng.annotations.Test;
 
 import java.util.*;
