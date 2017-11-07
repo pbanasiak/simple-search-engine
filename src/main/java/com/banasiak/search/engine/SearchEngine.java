@@ -23,6 +23,12 @@ public class SearchEngine {
         }
     }
 
+    public void addDocuments(List<Document> documents) {
+        for (Document document : documents) {
+            addDocument(document);
+        }
+    }
+
     public List<Document> search(String word) {
         DocumentTfIdfComparator documentTfIdfComparator = new DocumentTfIdfComparator(word, totalDocumentsCount,
                 wordToDocumentsMap.get(word).size());

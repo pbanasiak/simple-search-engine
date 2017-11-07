@@ -26,11 +26,10 @@ public class CustomTest {
         //given
         SearchEngine searchEngine = new SearchEngine();
 
-        for (String inputDocument : inputDocuments) {
-            Document document = DataLoader.createDocument(inputDocument);
-            searchEngine.addDocument(document);
-        }
+        List<Document> documents = DataLoader.loadData(inputDocuments);
+
         //when
+        searchEngine.addDocuments(documents);
         List<Document> search = searchEngine.search("customWord");
 
         System.out.println("Custom Search, Order by tf idf descending");
