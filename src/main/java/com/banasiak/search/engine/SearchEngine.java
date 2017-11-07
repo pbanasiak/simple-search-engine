@@ -30,17 +30,28 @@ public class SearchEngine {
     }
 
     public List<Document> search(String word) {
-        DocumentTfIdfComparator documentTfIdfComparator = new DocumentTfIdfComparator(word, totalDocumentsCount,
-                wordToDocumentsMap.get(word).size());
+        DocumentTfIdfComparator documentTfIdfComparator = getComparator(word);
         List<Document> documents = wordToDocumentsMap.get(word);
-        Collections.sort(documents, documentTfIdfComparator);
-        return documents;
+        if (documents != null && !documents.isEmpty()) {
+            Collections.sort(documents, documentTfIdfComparator);
+            return documents;
+        } else {
+            return new ArrayList();
+        }
     }
 
     public double getTfIdf(String word, Document document) {
-        DocumentTfIdfComparator documentTfIdfComparator = new DocumentTfIdfComparator(word, totalDocumentsCount,
-                wordToDocumentsMap.get(word).size());
+        DocumentTfIdfComparator documentTfIdfComparator = getComparator(word);
         return documentTfIdfComparator.getTfIdf(document);
+    }
+
+    private DocumentTfIdfComparator getComparator(String word) {
+        Integer numberOfDocumentsForWord = 0;
+        if (wordToDocumentsMap.containsKey(word)) {
+            numberOfDocumentsForWord = wordToDocumentsMap.get(word).size();
+        }
+        return new DocumentTfIdfComparator(word, totalDocumentsCount,
+                numberOfDocumentsForWord);
     }
 
     public Map<String, List<Document>> getWordToDocumentsMap() {

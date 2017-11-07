@@ -52,7 +52,11 @@ public class DocumentTfIdfComparator implements Comparator<Document> {
      * @return
      */
     private double getIdf() {
-        return Math.log10(totalDocumentsCount * 1.0 / numberOfDocumentsForWord);
+        if (numberOfDocumentsForWord != 0) {
+            return Math.log10(totalDocumentsCount * 1.0 / numberOfDocumentsForWord);
+        } else {
+            return 0;
+        }
     }
 
     public Double getTfIdf(Document document) {

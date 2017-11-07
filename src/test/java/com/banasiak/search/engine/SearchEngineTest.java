@@ -48,6 +48,22 @@ public class SearchEngineTest {
     }
 
     @Test
+    public void shouldSearchAndSortByNotExistingWord() {
+        //given
+        SearchEngine searchEngine = new SearchEngine();
+        List<String> inputDocuments = DocumentsProvider.getInputDocuments();
+        List<Document> documents = DataLoader.loadData(inputDocuments);
+
+        //when
+        searchEngine.addDocuments(documents);
+        List<Document> searchByThe = searchEngine.search("thesss");
+        double tfidf1 = searchEngine.getTfIdf("thess", documents.get(0));
+        //then
+        assertThat(searchByThe.size()).isEqualTo(0);
+        assertThat(tfidf1).isEqualTo(0);
+    }
+
+    @Test
     public void shouldSearchAndSortByBrown() {
         //given
         SearchEngine searchEngine = new SearchEngine();
