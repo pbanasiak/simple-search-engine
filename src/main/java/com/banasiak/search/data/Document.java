@@ -1,20 +1,19 @@
 package com.banasiak.search.data;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Document {
 
-    private final Map<String, Integer> frequencyMap = new HashMap();
+    private final Map<String, Integer> frequencyMap;
     private final String name;
-    private Integer wordsCount = 0;
+    private final String body;
+    private final Integer wordsCount;
 
-    public Document(String name, String[] words) {
+    public Document(String name, String body, Map<String, Integer> frequencyMap, Integer wordsCount) {
         this.name = name;
-        for (String word : words) {
-            addWordToFrequencyMap(word);
-            wordsCount++;
-        }
+        this.body = body;
+        this.frequencyMap = frequencyMap;
+        this.wordsCount = wordsCount;
     }
 
     public String getName() {
@@ -29,13 +28,7 @@ public class Document {
         return wordsCount;
     }
 
-    private void addWordToFrequencyMap(String word) {
-        if (frequencyMap.containsKey(word)) {
-            Integer actual = frequencyMap.get(word);
-            frequencyMap.put(word, ++actual);
-        } else {
-            frequencyMap.put(word, 1);
-        }
+    public String getBody() {
+        return body;
     }
-
 }

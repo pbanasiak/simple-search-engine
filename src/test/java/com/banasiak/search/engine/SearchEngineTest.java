@@ -61,6 +61,8 @@ public class SearchEngineTest {
         assertThat(searchByBrown.size()).isEqualTo(2);
         assertThat(searchByBrown.get(0).getName()).isEqualTo("Document 1");
         assertThat(searchByBrown.get(1).getName()).isEqualTo("Document 2");
+        assertThat(searchByBrown.get(0).getBody()).isEqualTo("the brown fox jumped over the brown dog");
+        assertThat(searchByBrown.get(1).getBody()).isEqualTo("the lazy brown dog sat in the corner");
     }
 
     @Test
@@ -77,6 +79,8 @@ public class SearchEngineTest {
         assertThat(searchByBrown.size()).isEqualTo(2);
         assertThat(searchByBrown.get(0).getName()).isEqualTo("Document 3");
         assertThat(searchByBrown.get(1).getName()).isEqualTo("Document 1");
+        assertThat(searchByBrown.get(0).getBody()).isEqualTo("the red fox bit the lazy dog");
+        assertThat(searchByBrown.get(1).getBody()).isEqualTo("the brown fox jumped over the brown dog");
     }
 
     @Test
@@ -100,6 +104,8 @@ public class SearchEngineTest {
         assertThat(tfidf3).isEqualTo(0.025155894150811604);
         assertThat(searchByLazy.get(0).getName()).isEqualTo("Document 3");
         assertThat(searchByLazy.get(1).getName()).isEqualTo("Document 2");
+        assertThat(searchByLazy.get(0).getBody()).isEqualTo("the red fox bit the lazy dog");
+        assertThat(searchByLazy.get(1).getBody()).isEqualTo("the lazy brown dog sat in the corner");
 
     }
 
@@ -161,6 +167,7 @@ public class SearchEngineTest {
         assertThat(tfidf2).isEqualTo(0.12901285528456335);
         assertThat(searchByExample.size()).isEqualTo(1);
         assertThat(searchByExample.get(0).getName()).isEqualTo("Document2");
+        assertThat(searchByExample.get(0).getBody()).isEqualTo("this is another another example example example");
     }
 
 }

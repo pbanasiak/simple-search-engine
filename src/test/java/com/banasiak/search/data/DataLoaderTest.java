@@ -70,6 +70,7 @@ public class DataLoaderTest {
 
         //then
         assertThat(document.getName()).isEqualTo("Document 1");
+        assertThat(document.getBody()).isEqualTo("the brown fox jumped over the brown dog");
         assertThat(document.getFrequencyMap().keySet().size()).isEqualTo(6);
         assertThat(document.getFrequencyMap().get("the")).isEqualTo(2);
         assertThat(document.getFrequencyMap().get("dog")).isEqualTo(1);
