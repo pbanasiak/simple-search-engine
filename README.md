@@ -1,8 +1,46 @@
-Files are sorted by tf idf descending\
-Unfortunately I didn't create any UI or something like that\
-But you can Edit CustomTest\
-To add a new Document just follow pattern Name : "words..." 
+# Simple Search Engine Overview
 
-or you can create documents manually in method customTestUsingDocumentBuilder
+Simply Search Engine is a simple search engine written in Java. It provides a possibility to search list of documents(represented by String) and returns a list of matching documents sorted by TF-IDF.
+
+# Assumptions
+
+  - List of matching documents is sorted in descneding order.
+  - Documents should match following pattern defined in DataLoader for example "Document 1: \"the brown fox jumped over the brown dog\"
+
+# Main Classes
+
+  | Class | Description |
+  | ------ | ------ |
+| DataLoader | responsible for parsing Document from input Stream based on pattern |
+| Document | represents single document |
+| DocumentBuilder | responsible for creating Documents, initialization logic inside |
+| DocumentTfIdfComparator | provides Comparator interface with TfIdf logic inside, sorting is descending |
+| SearchEngine| Main Search class |
+
+# Search Engine
+
+It provides three main methods:
+- addDocument(Document document)
+- addDocuments(List<Document> documents)
+- List<Document> search(String word)
+
+# Usage
+
+In order to test engine please modify CustomTest class.
+There are two methods customTestUsingDataLoader() and customTestUsingDocumentBuilder().
+ - You can either use DataLoader and follow defined pattern ("Document 1: \"the brown fox jumped over the brown customWord customWord dog").
+ - Or you can use customTestUsingDocumentBuilder(), buildDocument(String name, String Body) provides a possibility to seperate documentName and documentBody.
  
- in customTest you can provide by which word you want to search and order will be printed out
+Both methods returns a list of matching documents sorted by TF-IDF in descending order.
+
+# Run
+
+mvn clean install
+
+### Todos
+
+ - Possibility to add file from console
+ - Add log4j
+
+**Have fun :)**
+
