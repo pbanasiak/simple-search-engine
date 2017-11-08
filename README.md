@@ -6,6 +6,13 @@ Simply Search Engine is a simple search engine written in Java. It provides a po
 
   - List of matching documents is sorted in descneding order.
   - Documents should match following pattern defined in DataLoader for example "Document 1: \"the brown fox jumped over the brown dog\"
+  - All terms are lower case.
+
+# TF-IDF Assumptions
+The tf–idf is the product of two statistics, term frequency and inverse document frequency. Various ways for determining the exact values of both statistics exist.
+I chose following variants:
+- raw count for TF	
+- inverse document frequency for IDF
 
 # Main Classes
 
@@ -35,12 +42,15 @@ Both methods returns a list of matching documents sorted by TF-IDF in descending
 
 # Run
 
+You need java 8 and maven to run this app. 
+
 mvn clean install
 
 ### Todos
 
  - Possibility to add file from console
  - Add log4j
+ - Engine should not be case sensitive.
 
 **Have fun :)**
 
